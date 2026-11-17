@@ -230,10 +230,14 @@
       const DEAD = 0.25;
       // movement: left stick, Xbox D-pad buttons, and the dinput hat axes some
       // 8BitDo/DInput pads use instead of buttons 12-15
-      pLeft = btn(14) || axes[0] < -DEAD || axes[11] > 0.5;
-      pRight = btn(15) || axes[0] > DEAD || axes[12] > 0.5;
-      pUp = btn(12) || axes[1] < -DEAD || axes[9] > 0.5;
-      pDown = btn(13) || axes[1] > DEAD || axes[10] > 0.5;
+      // 6/7 hat pair (typical dinput, e.g. 8BitDo Ultimate on 2.4G): only trust
+      // it on pads exposing >=8 axes, and only at near-full deflection, so an
+      // analog trigger axis resting at -1 can never fake a held D-pad.
+      const hat67 = axes.length >= 8;
+      pLeft = btn(14) || axes[0] < -DEAD || axes[11] > 0.5 || (hat67 && axes[6] < -0.9);
+      pRight = btn(15) || axes[0] > DEAD || axes[12] > 0.5 || (hat67 && axes[6] > 0.9);
+      pUp = btn(12) || axes[1] < -DEAD || axes[9] > 0.5 || (hat67 && axes[7] < -0.9);
+      pDown = btn(13) || axes[1] > DEAD || axes[10] > 0.5 || (hat67 && axes[7] > 0.9);
       pJump = btn(0);
       pRun = btn(4) || btn(7) || (axes.length > 5 && axes[5] > 0.6) || (axes.length === 4 && axes[2] > 0.6); // LB / RT (or dinput combined axis)
       pTail = btn(1);
