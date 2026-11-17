@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wavebound — Gamepad Check</title>
+<style>
+  body { background: #0b1420; color: #dce8f5; font: 14px/1.5 'Segoe UI', system-ui, sans-serif; margin: 24px; }
+  h1 { font-size: 20px; color: #ffd77a; margin: 0 0 6px; }
+  .warn { color: #ff9fb8; }
+  .ok { color: #7fe3a0; }
+  #status { font-size: 16px; margin: 10px 0 20px; }
+  table { border-collapse: collapse; }
+  td, th { border: 1px solid #23405a; padding: 4px 10px; text-align: center; }
+  th { color: #9fb8cc; font-weight: 600; }
+  .on { background: #1d5c2e; color: #fff; font-weight: 700; }
+  .ax { font-variant-numeric: tabular-nums; }
+  .axlive { color: #ffd77a; font-weight: 700; }
+  #hint { color: #8aa; margin-top: 18px; }
+</style>
+</head>
+<body>
+  <h1>Wavebound Gamepad Check</h1>
+  <div id="status">no controller detected yet &mdash; <b>press any button on the controller</b></div>
+  <div id="info"></div>
+  <div id="pad"></div>
+  <div id="hint">
+    What to report if the gamepad does nothing in-game:<br>
+    1) Does a pad show up here at all? &mdash; if not, Chrome isn't seeing the device (receiver mode / pad mode switch).<br>
+    2) What does <b>mapping</b> say? ("standard" = Xbox layout; "dinput"/other = layout may differ).<br>
+    3) Which button cells light up when you press A, B, Start, and tilt the stick?
+  </div>
+<script>
+(function () {
+  "use strict";
+  const NAMES = ["A", "B", "X", "Y", "LB", "RB", "LT", "RT", "SELECT", "START", "L3", "R3",
+    "UP", "DOWN", "LEFT", "RIGHT", "HOME"];
+  let last0 = null;
+  function tick() {
+    const pads = navigator.getGamepads ? navigator.getGamepads() : [];
+    let gp = null;
+    for (const p of pads) if (p && p.connected) { gp = p; break; }
+    const status = document.getElementById("status");
+    const info = document.getElementById("info");
+    const pad = document.getElementById("pad");
+    if (!gp) {
+      if (last0 !== null) { pad.innerHTML = ""; info.innerHTML = ""; last0 = null; }
+      status.className = "warn";
+      status.innerHTML = "no controller detected yet &mdash; <b>press any button on the controller</b>";
+      requestAnimationFrame(tick);
+      return;
+    }
+    status.className = "ok";
+    status.textContent = "controller connected";
+    info.innerHTML = '<b>id:</b> ' + gp.id + "<br><b>mapping:</b> " + gp.mapping +
+      " <b>buttons:</b> " + (gp.buttons || []).length + " <b>axes:</b> " + (gp.axes || []).length;
+    const sig = (gp.buttons || []).map((b) => (b.pressed ? 1 : 0)).join("") + "|" +
+      (gp.axes || []).map((a) => a.toFixed(2)).join(",");
+    if (sig !== last0) {
+      last0 = sig;
+      let html = "<table><tr><th>btn</th>";
+      (gp.buttons || []).forEach((b, i) => { html += "<th>" + i + "</th>"; });
+      html += "</tr><tr><td>name</td>";
+      (gp.buttons || []).forEach((b, i) => { html += "<td>" + (NAMES[i] || "?") + "</td>"; });
+      html += "</tr><tr><td>state</td>";
+      (gp.buttons || []).forEach((b, i) => { html += '<td class="' + (b.pressed ? "on" : "") + '">' + (b.pressed ? "\u25CF" : "") + "</td>"; });
+      html += "</tr></table><br><table><tr><th>axis</th>";
+      (gp.axes || []).forEach((a, i) => { html += "<th>" + i + "</th>"; });
+      html += "</tr><tr><td>value</td>";
+      (gp.axes || []).forEach((a, i) => {
+        html += '<td class="ax ' + (Math.abs(a) > 0.25 ? "axlive" : "") + '">' + a.toFixed(2) + "</td>";
+      });
+      html += "</tr></table>";
+      pad.innerHTML = html;
+    }
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener("gamepadconnected", () => { last0 = null; });
+  tick();
+})();
+</script>
+</body>
+</html>

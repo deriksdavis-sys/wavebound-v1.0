@@ -228,12 +228,14 @@
       const axes = gp.axes || [];
       const btn = (i) => !!(btns[i] && btns[i].pressed);
       const DEAD = 0.25;
-      pLeft = btn(14) || axes[0] < -DEAD;
-      pRight = btn(15) || axes[0] > DEAD;
-      pUp = btn(12) || axes[1] < -DEAD;
-      pDown = btn(13) || axes[1] > DEAD;
+      // movement: left stick, Xbox D-pad buttons, and the dinput hat axes some
+      // 8BitDo/DInput pads use instead of buttons 12-15
+      pLeft = btn(14) || axes[0] < -DEAD || axes[11] > 0.5;
+      pRight = btn(15) || axes[0] > DEAD || axes[12] > 0.5;
+      pUp = btn(12) || axes[1] < -DEAD || axes[9] > 0.5;
+      pDown = btn(13) || axes[1] > DEAD || axes[10] > 0.5;
       pJump = btn(0);
-      pRun = btn(4) || btn(7) || (axes.length > 5 && axes[5] > 0.6); // LB / RT only
+      pRun = btn(4) || btn(7) || (axes.length > 5 && axes[5] > 0.6) || (axes.length === 4 && axes[2] > 0.6); // LB / RT (or dinput combined axis)
       pTail = btn(1);
       pEnter = btn(9);
       pSelect = btn(8);
