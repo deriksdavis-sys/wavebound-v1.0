@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavebound — Princess of the Sundered Sea</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #pause-panel { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 340px; background: rgba(10, 24, 40, 0.96); border: 1px solid #2c5370; border-radius: 12px; padding: 18px 22px; color: #cfe7ff; font: 14px/1.5 'Segoe UI', system-ui, sans-serif; z-index: 30; }
+    #pause-panel.hidden { display: none; }
+    #pause-panel h2 { margin: 0; font-size: 26px; color: #ffd77a; text-transform: uppercase; letter-spacing: 1.5px; }
+    #pause-panel .psub { margin: 0 0 12px; font-size: 12px; color: #6f8ea3; text-transform: uppercase; letter-spacing: 1px; }
+    #pause-panel .prow { display: grid; grid-template-columns: 90px 1fr 40px; align-items: center; gap: 10px; margin: 8px 0; }
+    #pause-panel input[type=range] { width: 100%; accent-color: #1d7aa8; }
+    #pause-panel .pval { text-align: right; font-size: 12px; color: #9db4c6; }
+    #pause-panel .pfoot { margin-top: 12px; font-size: 12px; color: #6f8ea3; }
+    #pause-panel button { width: 100%; background: #1d7aa8; color: #fff; border: none; border-radius: 6px; padding: 7px; cursor: pointer; font-size: 13px; margin-top: 10px; }
+  </style>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1420">
+  <script>
+    if (location.protocol === "http:" || location.protocol === "https:") {
+      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+    }
+  </script>
+</head>
+<body>
+  <main id="game-wrap">
+    <canvas id="game" width="960" height="540"></canvas>
+    <div id="pause-panel" class="hidden">
+      <h2>Paused</h2>
+      <div class="psub">Audio Options</div>
+      <div class="prow"><label>Music</label><input type="range" id="vol-music" min="0" max="100" step="1"><span class="pval" id="vol-music-val"></span></div>
+      <div class="prow"><label>SFX</label><input type="range" id="vol-sfx" min="0" max="100" step="1"><span class="pval" id="vol-sfx-val"></span></div>
+      <button id="btn-unpause">Resume (ESC / O)</button>
+      <div class="pfoot">ESC / O close · M mute · sliders save automatically</div>
+    </div>
+  </main>
+  <script src="render.js?v=42"></script>
+  <script src="level_core.js?v=42"></script>
+  <script src="wa_npcs.js?v=41"></script>
+  <script src="wa_npc_custom.js?v=41"></script>
+  <script src="flavor_overrides.js?v=2"></script>
+  <script src="flavor.js?v=1"></script>
+  <script src="audio.js?v=6"></script>
+  <script>document.write('<scr' + 'ipt src="levels.js?v=' + Date.now() + '"><\/scr' + 'ipt>');</script>
+  <script src="game.js?v=52"></script>
+</body>
+</html>

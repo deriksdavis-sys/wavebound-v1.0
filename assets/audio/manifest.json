@@ -1,0 +1,346 @@
+{
+ "version": 1,
+ "sfx": {
+  "jump": {
+   "file": "sfx_library/nes_55_step4.ogg",
+   "files": [
+    "sfx_library/nes_55_step4.ogg"
+   ],
+   "gain": 1
+  },
+  "land": {
+   "file": "sfx_library/nes_22_walk2.ogg",
+   "files": [
+    "sfx_library/nes_22_walk2.ogg"
+   ],
+   "gain": 0.8
+  },
+  "splash": {
+   "file": "sfx_library/splash1.ogg",
+   "files": [
+    "sfx_library/splash1.ogg",
+    "sfx_library/splash2.ogg"
+   ],
+   "gain": 1
+  },
+  "ticket": {
+   "file": "sfx_library/money1_2.ogg",
+   "files": [
+    "sfx_library/money1_2.ogg",
+    "sfx_library/money3_2.ogg",
+    "sfx_library/money4.ogg",
+    "sfx_library/money3_2.ogg"
+   ],
+   "gain": 0.5
+  },
+  "conch": {
+   "file": "sfx_library/nes_66_drink.ogg",
+   "files": [
+    "sfx_library/nes_66_drink.ogg"
+   ],
+   "gain": 1
+  },
+  "key": {
+   "file": "sfx_library/arpsparse4_bsfx.ogg",
+   "files": [
+    "sfx_library/arpsparse4_bsfx.ogg"
+   ],
+   "gain": 1
+  },
+  "door": {
+   "file": "sfx_library/arpup_bsfx.ogg",
+   "files": [
+    "sfx_library/arpup_bsfx.ogg"
+   ],
+   "gain": 1
+  },
+  "chest": {
+   "file": "sfx_library/arpconlong_bsfx.ogg",
+   "files": [
+    "sfx_library/arpconlong_bsfx.ogg"
+   ],
+   "gain": 1
+  },
+  "hit": {
+   "file": "sfx_library/nes_67_knock.ogg",
+   "files": [
+    "sfx_library/nes_67_knock.ogg"
+   ],
+   "gain": 1
+  },
+  "kill": {
+   "file": "sfx_library/ukeslide6_bsfx.ogg",
+   "files": [
+    "sfx_library/ukeslide6_bsfx.ogg"
+   ],
+   "gain": 1.25
+  },
+  "save": {
+   "file": "sfx_library/arpup_bsfx.ogg",
+   "files": [
+    "sfx_library/arpup_bsfx.ogg"
+   ],
+   "gain": 1
+  },
+  "talk": {
+   "file": "sfx_library/conversationthing_bsfx.ogg",
+   "files": [
+    "sfx_library/conversationthing_bsfx.ogg"
+   ],
+   "gain": 1
+  },
+  "boss": {
+   "file": "sfx_library/susparpoct.ogg",
+   "files": [
+    "sfx_library/susparpoct.ogg",
+    "sfx_library/susparpslow.ogg"
+   ],
+   "gain": 1
+  },
+  "win": {
+   "file": "sfx_library/nes_24_levelclear.ogg",
+   "files": [
+    "sfx_library/nes_24_levelclear.ogg"
+   ],
+   "gain": 1
+  },
+  "die": {
+   "file": "sfx_library/beepdoopfallwav.ogg",
+   "files": [
+    "sfx_library/beepdoopfallwav.ogg"
+   ],
+   "gain": 1
+  },
+  "select": {
+   "file": "sfx_library/nes_11_menu.ogg",
+   "files": [
+    "sfx_library/nes_11_menu.ogg"
+   ],
+   "gain": 1
+  },
+  "back": {
+   "file": "sfx_library/nes_33_rotate1.ogg",
+   "files": [
+    "sfx_library/nes_33_rotate1.ogg"
+   ],
+   "gain": 1
+  },
+  "feather": {
+   "file": "sfx_library/seagull_bsfx.ogg",
+   "files": [
+    "sfx_library/seagull_bsfx.ogg",
+    "sfx_library/seagull_bsfx_2.ogg"
+   ],
+   "gain": 0.85
+  },
+  "crabburst": {
+   "file": "sfx_library/nes_77_arrowbounce.ogg",
+   "files": [
+    "sfx_library/nes_77_arrowbounce.ogg",
+    "sfx_library/nes_69_explode.ogg"
+   ],
+   "gain": 1.45
+  },
+  "crabclick": {
+   "file": "sfx_library/nes_70_teleport.ogg",
+   "files": [
+    "sfx_library/nes_70_teleport.ogg"
+   ],
+   "gain": 0.7
+  },
+  "roulette": {
+   "file": "sfx_library/nes_31_text.ogg",
+   "files": [
+    "sfx_library/nes_31_text.ogg"
+   ],
+   "gain": 1
+  }
+ },
+ "music": {
+  "tracks": {
+   "music_library/marchofthecrabs.ogg": {
+    "label": "March of the Crabs",
+    "gain": 1
+   },
+   "music_library/beat_the_game.ogg": {
+    "label": "Beat The Game",
+    "gain": 1
+   },
+   "music_library/doctor.ogg": {
+    "label": "Doctor",
+    "gain": 1
+   },
+   "music_library/celeste.ogg": {
+    "label": "Celeste",
+    "gain": 1
+   },
+   "music_library/chloeboombapwav.ogg": {
+    "label": "Chloe's BoomBap",
+    "gain": 1
+   },
+   "music_library/ghastlygirl.ogg": {
+    "label": "Ghastly",
+    "gain": 1
+   },
+   "music_library/otterswelcome.ogg": {
+    "label": "Otter's Welcome",
+    "gain": 1
+   },
+   "music_library/omnichordrainbows.ogg": {
+    "label": "Pink Water",
+    "gain": 1
+   },
+   "music_library/moonchild.ogg": {
+    "label": "Moonchild",
+    "gain": 1
+   },
+   "music_library/gretsch.ogg": {
+    "label": "Gretsch",
+    "gain": 1
+   }
+  },
+  "title": "music_library/marchofthecrabs.ogg",
+  "order": [
+   "music_library/marchofthecrabs.ogg",
+   "music_library/beat_the_game.ogg",
+   "music_library/doctor.ogg",
+   "music_library/celeste.ogg",
+   "music_library/chloeboombapwav.ogg",
+   "music_library/ghastlygirl.ogg",
+   "music_library/otterswelcome.ogg",
+   "music_library/omnichordrainbows.ogg",
+   "music_library/moonchild.ogg",
+   "music_library/gretsch.ogg"
+  ],
+  "levels": {
+   "0": {
+    "file": "music_library/doctor.ogg",
+    "b": null,
+    "next": "music_library/beat_the_game.ogg",
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "1": {
+    "file": "sfx_library/harmonica1.ogg",
+    "b": null,
+    "next": "music_library/otterswelcome.ogg",
+    "next2": "music_library/marchofthecrabs.ogg",
+    "next3": null,
+    "gain": 1
+   },
+   "2": {
+    "file": "music_library/celeste.ogg",
+    "b": null,
+    "next": "music_library/chloeboombapwav.ogg",
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "3": {
+    "file": "music_library/marchofthecrabs.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "4": {
+    "file": "music_library/chloeboombapwav.ogg",
+    "b": null,
+    "next": "music_library/celeste.ogg",
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "5": {
+    "file": "music_library/moonchild.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "6": {
+    "file": "music_library/ghastlygirl.ogg",
+    "b": null,
+    "next": "music_library/celeste.ogg",
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "7": {
+    "file": "music_library/gretsch.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "8": {
+    "file": "music_library/omnichordrainbows.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "9": {
+    "file": "music_library/doctor.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "10": {
+    "file": "music_library/moonchild.ogg",
+    "b": null,
+    "next": "music_library/omnichordrainbows.ogg",
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "11": {
+    "file": "music_library/doctor.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "12": {
+    "file": "music_library/omnichordrainbows.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "13": {
+    "file": "music_library/celeste.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   },
+   "14": {
+    "file": "music_library/marchofthecrabs.ogg",
+    "b": null,
+    "next": null,
+    "next2": null,
+    "next3": null,
+    "gain": 1
+   }
+  },
+  "final": {
+   "file": "music_library/beat_the_game.ogg",
+   "gain": 1
+  },
+  "congrats": {
+   "file": "music_library/beat_the_game.ogg",
+   "gain": 1
+  }
+ }
+}
