@@ -1,5 +1,5 @@
 // Wavebound v1.0 service worker - offline persistent cache.
-const VERSION = "wavebound-v1.0-b09bc5bc";
+const VERSION = "wavebound-v1.0-contents-eb958f8bdf";
 const CORE = [
  "./README.txt",
  "./assets/README.md",

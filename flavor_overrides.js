@@ -12,7 +12,7 @@ window.WAVEBOUND_FLAVOR_OVERRIDES = {
   "ctrl": [
    "ARROWS / WASD move    SPACE jump (hold to glide)    HOLD C run / dash",
    "X concussive force    E switch SEA / LAND form    ENTER talk / advance",
-   "GAMEPAD: STICK / D-PAD   A jump   B force   Y / RB form   LB / RT dash"
+   "GAMEPAD: STICK / D-PAD   A jump   B force   Y / RB form   LB / RT dash   START pause / talk"
   ]
  },
  "banners": {

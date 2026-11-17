@@ -199,6 +199,7 @@
   };
 
   const padPrev = { enter: false, switch: false, cheat: false };
+  let padEnterEdge = false;
 
   function grantAllPowerups() {
     save.maxHearts = 6;
@@ -232,12 +233,13 @@
       pUp = btn(12) || axes[1] < -DEAD;
       pDown = btn(13) || axes[1] > DEAD;
       pJump = btn(0);
-      pRun = btn(4) || btn(5) || btn(6) || btn(7) || (axes.length > 4 && (axes[4] > 0.6 || axes[5] > 0.6));
+      pRun = btn(4) || btn(7) || (axes.length > 5 && axes[5] > 0.6); // LB / RT only
       pTail = btn(1);
       pEnter = btn(9);
       pSelect = btn(8);
-      pSwitch = btn(3) || btn(5) || btn(8);
+      pSwitch = btn(3) || btn(5); // Y / RB
     }
+    padEnterEdge = !!(gp && pEnter && !padPrev.enter);
 
     const cheatCombo = pEnter && pSelect && !padPrev.cheat;
     if (cheatCombo) { pEnter = false; pSwitch = false; grantAllPowerups(); }
@@ -252,7 +254,8 @@
     input.run = keys.run || pRun;
     input.tail = keys.tail || pTail;
 
-    input.enter = (keys.enter && !keys.enterPrev) || (pEnter && !padPrev.enter);
+    input.enter = (keys.enter && !keys.enterPrev) || padEnterEdge;
+    input.padEnter = padEnterEdge;
     input.switchReq = (keys.switchPressed && !keys.switchPrev) || (pSwitch && !padPrev.switch);
     input.testReq = keys.testPressed && !keys.testPrev;
 
@@ -270,6 +273,7 @@
     tail: false, tailWas: false,
     switchReq: false,
     testReq: false,
+    padEnter: false,
     upPrev: false, downPrev: false,
     leftPrev: false, rightPrev: false,
     enter: false, prevEnter: false,
@@ -321,6 +325,13 @@
       case "Enter": keys.enter = false; break;
       case "L": case "l": keys.testPressed = false; break;
     }
+  });
+
+  window.addEventListener("gamepadconnected", () => {
+    toast = FT("toasts.padOn"); toastT = 2;
+  });
+  window.addEventListener("gamepaddisconnected", () => {
+    toast = FT("toasts.padOff"); toastT = 2;
   });
 
   window.addEventListener("blur", () => {
@@ -2648,6 +2659,12 @@
       if (!paused) {
         if (dialog) updateDialog(dt);
         else updateGame(dt);
+      }
+      // Gamepad START: pause when wandering, unpause when paused,
+      // and defer to talking/confirming whenever a dialog is open or an NPC is near.
+      if (input.padEnter) {
+        if (paused) setPaused(false);
+        else if (!dialog && !player.nearNPC && state === STATE.PLAY) setPaused(true);
       }
       if (state === STATE.CONGRATS) { stateTimer = 0; congratsPrevJump = true; }
     } else if (state === STATE.DYING) {

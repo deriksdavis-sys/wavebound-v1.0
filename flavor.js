@@ -17,7 +17,7 @@
       ctrl: [
         "ARROWS / WASD move    SPACE jump (hold to glide)    HOLD C run / dash",
         "X smack / bolt    E switch SEA / LAND form    ENTER talk / advance",
-        "GAMEPAD: STICK / D-PAD   A jump   B smack   Y / RB form   LB / RT dash",
+        "GAMEPAD: STICK / D-PAD   A jump   B smack   Y / RB form   LB / RT dash   START pause / talk",
       ],
       optContinue: "CONTINUE",
       optNew: "NEW GAME",
@@ -64,6 +64,8 @@
       muted: "AUDIO MUTED",
       unmuted: "AUDIO ON",
       notEnoughTix: "NOT ENOUGH TIX (or already max)",
+      padOn: "CONTROLLER READY",
+      padOff: "CONTROLLER DISCONNECTED",
       leapHint: "DOUBLE-JUMP mid-air (SPACE) while on land",
     },
     banners: {
