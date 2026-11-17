@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wavebound — Finale Cam</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  #game { width: 100vw; height: 100vh; object-fit: contain; display: block; margin: auto; }
+  #hint { position: fixed; top: 8px; left: 12px; color: #456; font: 12px monospace; z-index: 5; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="hint">finale cam - press any key once to start audio - ENTER returns to title</div>
+<script src="render.js?v=42"></script>
+<script src="level_core.js?v=43"></script>
+<script src="wa_npcs.js?v=41"></script>
+<script src="wa_npc_custom.js?v=41"></script>
+<script src="flavor_overrides.js?v=1"></script>
+<script src="flavor.js?v=1"></script>
+<script src="audio.js?v=6"></script>
+<script>document.write('<scr' + 'ipt src="levels.js?v=' + Date.now() + '"><\/scr' + 'ipt>');</script>
+<script src="game.js?v=55"></script>
+<script>
+setTimeout(() => {
+  const WB = globalThis.__wavebound;
+  if (!WB) return;
+  WB.setState(WB.STATE.FINAL);
+  globalThis.WBAudio.playFinalMusic(); // arms on first key/click (autoplay policy)
+}, 600);
+</script>
+</body>
+</html>
